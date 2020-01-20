@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   Module.hpp                                       .::    .:/ .      .::   */
+/*   GraphicUI.hpp                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/20 15:26:28 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 15:26:51 by fablin      ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/20 20:30:19 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef MODULE
-#define MODULE
+#ifndef GRAPHICUI
+#define GRAPHICUI
 
-class Module
+#include "IMonitorDisplay.hpp"
+
+class GraphicUI : IMonitorDisplay
 {
 private:
-    /* data */
     
 public:
-    Module(/* args */);
-    ~Module();
-    Module & operator=(Module const &);
-    Module(Module &);
+    GraphicUI(/* args */);
+    ~GraphicUI();
+    GraphicUI & operator=(GraphicUI const &);
+    GraphicUI(GraphicUI &);
+
 };
 
 

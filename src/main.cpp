@@ -6,36 +6,42 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 12:41:57 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 15:02:16 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 20:36:16 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
+void exitProg()
+{
+    // need to delete monitor here
+    
+    endwin();
+    exit(0);
+}
+
+void keyHandler(const int key)
+{
+    if (key == 27)
+        exitProg();
+    if (key == KEY_UP || key == KEY_DOWN || key == KEY_LEFT || key == KEY_RIGHT)
+        ;
+}
+
 int main()
 {
-    WINDOW *haut, *bas;
     initscr();
-    //nodelay(stdscr, true);
+    nodelay(stdscr, true);
 
-    haut = subwin(stdscr, LINES / 2, COLS, 0, 0);
-    bas = subwin(stdscr, LINES / 2, COLS, LINES / 2, 0);
+    //Monitor * monitor = new Monitor();
 
-    char *input = new char[200];
     while (true)
     {
-        box(haut, ACS_VLINE, ACS_HLINE);
-        box(bas, ACS_VLINE, ACS_HLINE);
-        refresh();
-        wrefresh(haut);
-        wrefresh(bas);
-        mvwprintw(haut, 1, 1, input);
-        mvwprintw(bas, 1, 1, "Ceci est la fenetre du bas");
-        getnstr(input, 200);
-
-        if (input[0] == 27)
-            exit(0);
+        //monitor->display();
+        doupdate();
+        
+        //keyHandler(getch());
         usleep(300000);
     }
 

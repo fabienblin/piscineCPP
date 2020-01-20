@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.hpp                                         .::    .:/ .      .::   */
+/*   Monitor.cpp                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/20 12:42:25 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 19:17:11 by fablin      ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/20 15:04:29 by fablin       #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/20 20:40:35 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef MAIN
-#define MAIN
-
-#include <ncurses.h>
-#include <cstdlib>
-#include <unistd.h>
-#include <iostream>
-
 #include "Monitor.hpp"
-// #include "IMonitorDisplay.hpp"
-// #include "IMonitorModule.hpp"
 
-#endif
+Monitor::Monitor()// : IMonitorDisplay()
+{
+}
+
+Monitor::~Monitor()
+{
+}
+
+Monitor::Monitor(Monitor &m)// : IMonitorDisplay(m)
+{
+    *this = m;
+}
+
+Monitor &Monitor::operator=(Monitor const &m)
+{
+    (void)m;
+    return *this;
+}

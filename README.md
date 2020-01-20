@@ -2,5 +2,5 @@
 
 **Use the makefile**
 
-This project aims to immitate GKrellM
+This project aims to immitate _GKrellM_
 

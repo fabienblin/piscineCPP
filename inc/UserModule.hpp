@@ -1,40 +1,46 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   IMonitorDisplay.hpp                              .::    .:/ .      .::   */
+/*   UserModule.hpp                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 21:01:21 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 20:58:31 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef IMONITORDISPLAY
-#define IMONITORDISPLAY
+#ifndef USERMODULE
+#define USERMODULE
 
-#include <ncurses.h>
+#include <errno.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
 #include <iostream>
+#include <stdlib.h>
 
-class IMonitorDisplay
+#include "IMonitorModule.hpp"
+#include "ShellUI.hpp"
+
+class UserModule : IMonitorModule, ShellUI
 {
-protected:
-    WINDOW * window;
-    int width;
-    int height;
-    int cursor[2]; // y, x du curseur de fenetre deplaceable avec ncurses::move()
-    
-public:
-    IMonitorDisplay(/* args */);
-    virtual ~IMonitorDisplay();
-    IMonitorDisplay & operator=(IMonitorDisplay const &);
-    IMonitorDisplay(IMonitorDisplay &);
+private:
+    std::string hostName;
+    std::string userName;
 
-    virtual void display() = 0;
-    virtual void init() = 0;
-    virtual void refresh() = 0;
-    virtual void print(std::string) = 0;
+public:
+    UserModule(/* args */);
+    ~UserModule();
+    UserModule & operator=(UserModule const &);
+    UserModule(UserModule &);
+    
+    void setUserName();
+    void setHostName();
+    std::string getHostName();
+    std::string getUserName();
+    void display();
 };
 
 

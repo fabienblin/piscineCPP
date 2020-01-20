@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   IMonitorDisplay.hpp                              .::    .:/ .      .::   */
+/*   ShellUI.hpp                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 21:01:21 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 21:02:44 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef IMONITORDISPLAY
-#define IMONITORDISPLAY
+#ifndef SHELLUI
+#define SHELLUI
 
-#include <ncurses.h>
-#include <iostream>
+#include "IMonitorDisplay.hpp"
 
-class IMonitorDisplay
+class ShellUI : IMonitorDisplay
 {
-protected:
-    WINDOW * window;
-    int width;
-    int height;
-    int cursor[2]; // y, x du curseur de fenetre deplaceable avec ncurses::move()
+private:
     
 public:
-    IMonitorDisplay(/* args */);
-    virtual ~IMonitorDisplay();
-    IMonitorDisplay & operator=(IMonitorDisplay const &);
-    IMonitorDisplay(IMonitorDisplay &);
+    ShellUI(/* args */);
+    ~ShellUI();
+    ShellUI & operator=(ShellUI const &);
+    ShellUI(ShellUI &);
 
-    virtual void display() = 0;
-    virtual void init() = 0;
-    virtual void refresh() = 0;
-    virtual void print(std::string) = 0;
+    void display();
+    void init();
+    void refresh();
+    void print(std::string);
 };
 
 

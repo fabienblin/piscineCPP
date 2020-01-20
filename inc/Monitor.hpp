@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   Module.cpp                                       .::    .:/ .      .::   */
+/*   Monitor.hpp                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/20 15:04:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 15:27:23 by fablin      ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/20 15:26:28 by fablin       #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/20 20:57:17 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "Module.hpp"
+#ifndef MONITOR
+#define MONITOR
 
-Module::Module(/* args */)
-{
-}
+#include "IMonitorModule.hpp"
 
-Module::~Module()
+// Monitor handles the modules
+class Monitor
 {
-}
+private:
+    // IMonitorModule * modules[];
+    
+public:
+    Monitor();
+    ~Monitor();
+    Monitor & operator=(Monitor const &);
+    Monitor(Monitor &);
+};
 
-Module::Module(Module & m)
-{
-    *this = m;
-}
 
-Module & Module::operator=(Module const & m)
-{
-    (void)m;
-    return *this;
-}
+#endif

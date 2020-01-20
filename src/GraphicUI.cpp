@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   main.hpp                                         .::    .:/ .      .::   */
+/*   GraphicUI.cpp                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/20 12:42:25 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 19:17:11 by fablin      ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/20 20:12:02 by fablin       #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/20 20:20:01 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef MAIN
-#define MAIN
+#include "GraphicUI.hpp"
 
-#include <ncurses.h>
-#include <cstdlib>
-#include <unistd.h>
-#include <iostream>
+GraphicUI::GraphicUI(/* args */)
+{
+}
 
-#include "Monitor.hpp"
-// #include "IMonitorDisplay.hpp"
-// #include "IMonitorModule.hpp"
+GraphicUI::~GraphicUI()
+{
+}
 
-#endif
+GraphicUI & GraphicUI::operator=(GraphicUI const & g)
+{
+    (void)g;
+    return *this;
+}
+
+GraphicUI::GraphicUI(GraphicUI & g)
+{
+    *this = g;
+}

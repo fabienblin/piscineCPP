@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 20:58:31 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 15:13:39 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,9 +22,8 @@
 #include <stdlib.h>
 
 #include "IMonitorModule.hpp"
-#include "ShellUI.hpp"
 
-class UserModule : IMonitorModule, ShellUI
+class UserModule : public IMonitorModule
 {
 private:
     std::string hostName;
@@ -40,7 +39,7 @@ public:
     void setHostName();
     std::string getHostName();
     std::string getUserName();
-    void display();
+    std::string getInfo();
 };
 
 

@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 20:11:21 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 20:59:27 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 15:12:23 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -60,10 +60,7 @@ std::string UserModule::getUserName()
     return this->userName;
 }
 
-
-void UserModule::display()
+std::string UserModule::getInfo()
 {
-    // print(hostName);
-    // print(userName);
-    refresh();
+    return this->hostName + " " + this->userName;
 }

@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 15:54:30 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 21:10:24 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,16 +15,17 @@
 #define SHELLUI
 
 #include <ncurses.h>
+#include <vector>
 
+#include "IMonitorModule.hpp"
 #include "IMonitorDisplay.hpp"
 
 class ShellUI : public IMonitorDisplay
 {
 private:
-    WINDOW * window;
+    std::vector<WINDOW *> windows;
     int width;
     int height;
-    int cursor[2]; // y, x du curseur de fenetre deplaceable avec ncurses::move()
 
 public:
     ShellUI(/* args */);
@@ -32,7 +33,7 @@ public:
     ShellUI & operator=(ShellUI const &);
     ShellUI(ShellUI &);
 
-    void display(std::string);
+    void display(std::vector<IMonitorModule *>);
     void refresh();
 };
 

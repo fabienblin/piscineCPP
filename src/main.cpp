@@ -6,28 +6,12 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 12:41:57 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 17:44:01 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 19:25:54 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "Monitor.hpp"
-
-void exitProg()
-{
-    // need to delete monitor here
-
-    endwin();
-    exit(0);
-}
-
-void keyHandler(const int key)
-{
-    if (key == 27)
-        exitProg();
-    if (key == KEY_UP || key == KEY_DOWN || key == KEY_LEFT || key == KEY_RIGHT)
-        ;
-}
 
 int main()
 {
@@ -38,6 +22,7 @@ int main()
     // (void)monitor;
     while (true)
     {
+        clear();
         monitor->display();
         monitor->refresh();
 

@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:04:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 18:05:42 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 20:55:38 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,8 @@
 
 Monitor::Monitor()
 {
+    this->modules.push_back(new UserModule());
+    this->modules.push_back(new UserModule());
     this->modules.push_back(new UserModule());
     this->displayMode = new ShellUI();
 }
@@ -38,10 +40,7 @@ void Monitor::display()
 {
     try
     {
-        for (std::vector<IMonitorModule *>::iterator it = this->modules.begin(); it != this->modules.end(); it++)
-        {
-            displayMode->display((*it)->getInfo());
-        }
+        displayMode->display(this->modules);
     }
     catch (const std::exception &e)
     {

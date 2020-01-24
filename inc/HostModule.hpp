@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   UserModule.hpp                                   .::    .:/ .      .::   */
+/*   HostModule.hpp                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 20:58:31 by fablin      ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/24 14:06:36 by kcabus       #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/24 15:40:36 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef USERMODULE
-#define USERMODULE
+#ifndef HOSTMODULE_HPP_
+#define HOSTMODULE_HPP_
 
 #include <errno.h>
 #include <stdio.h>
@@ -22,25 +22,28 @@
 #include <stdlib.h>
 
 #include "IMonitorModule.hpp"
-#include "ShellUI.hpp"
 
-class UserModule : IMonitorModule, ShellUI
+class HostModule : public IMonitorModule
 {
 private:
-    std::string hostName;
-    std::string userName;
+    std::string _hostName;
+    std::string _userName;
 
 public:
-    UserModule(/* args */);
-    ~UserModule();
-    UserModule & operator=(UserModule const &);
-    UserModule(UserModule &);
-    
-    void setUserName();
-    void setHostName();
-    std::string getHostName();
-    std::string getUserName();
-    void display();
+	static const std::string name;
+
+	/* Canonical */
+    HostModule(void);
+    ~HostModule(void);
+    HostModule & operator=(HostModule const &);
+    HostModule(HostModule const &);
+
+//    HostModule(/* args */);
+
+	/* Interface methods */
+	virtual void	updateData(void);
+	virtual std::string	getData(void) const;
+
 };
 
 

@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   IMonitorModule.hpp                               .::    .:/ .      .::   */
+/*   DateModule.hpp                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 15:27:26 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/24 15:39:22 by kcabus       #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/24 15:41:34 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef IMONITORMODULE_HPP_
-#define IMONITORMODULE_HPP_
+#ifndef DATEMODULE_HPP_
+#define DATEMODULE_HPP_
 
-#include <iostream>
-#include <vector>
+#include <ctime>
 
-class IMonitorModule
+#include "IMonitorModule.hpp"
+
+class DateModule : public IMonitorModule
 {
-	public:
-		virtual void	updateData(void) = 0;
-		virtual std::string	getData(void) const = 0;
-	//voir pour ajouter exception "data not found"
+private:
+
+public:
+	static const std::string name;
+
+	/* Canonical */
+    DateModule(void);
+    ~DateModule(void);
+    DateModule & operator=(DateModule const &);
+    DateModule(DateModule const &);
+
+//    DateModule(/* args */);
+
+	/* Interface methods */
+	virtual void	updateData(void);
+	virtual std::string	getData(void) const;
 
 };
-
-#endif

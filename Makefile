@@ -6,7 +6,7 @@
 #    By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 11:29:05 by fablin       #+#   ##    ##    #+#        #
-#    Updated: 2020/01/24 17:58:17 by kcabus      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/24 21:45:16 by kcabus      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -26,7 +26,9 @@ C_FILES =	main.cpp	\
 			ShellUI.cpp	\
 			GraphicUI.cpp	\
 			HostModule.cpp	\
+			DateModule.cpp	\
 			OSModule.cpp	\
+			RamModule.cpp	\
 			CpuModule.cpp	
 
 O_FILES =	$(C_FILES:.cpp=.o)

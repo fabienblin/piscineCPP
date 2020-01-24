@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 15:58:41 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 17:09:31 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 21:06:49 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,15 +16,11 @@
 /* Canonical */
 OSModule::OSModule(void)
 {
-	if (this->_osStruct == NULL)
-		this->_osStruct = new struct utsname;
 	this->updateData();
 }
 
 OSModule::~OSModule(void)
 {
-	if (this->_osStruct != NULL)
-		delete this->_osStruct;
 }
 
 OSModule &OSModule::operator=(OSModule const &copy)
@@ -45,15 +41,13 @@ OSModule::OSModule(OSModule const &copy)
 
 void	OSModule::verif_data(void) const
 {
-	if (this->_osStruct)
-		throw std::exception();
+/*	if (this->_osStruct)
+		throw std::exception();*/
 }
 
 void OSModule::updateData(void)
 {
-
-
-	if (uname(this->_osStruct) == -1)
+		if (uname(&this->_osStruct) == -1)
 		throw std::exception();//TODO: whitch exception ?
 
 }
@@ -65,20 +59,18 @@ void OSModule::updateData(void)
 //char machine[];	/* Hardware identifier */
 std::string OSModule::getData(void) const
 {
+	std::string	res;
 	this->verif_data();
 
-	struct utsname tmp = *this->_osStruct;
-	std::string	res;
-
-	res.append(tmp.sysname);
+	res.append(this->_osStruct.sysname);
 	res.append("|");
-	res.append(tmp.nodename);
+	res.append(this->_osStruct.nodename);
 	res.append("|");
-	res.append(tmp.release);
+	res.append(this->_osStruct.release);
 	res.append("|");
-	res.append(tmp.version);
+	res.append(this->_osStruct.version);
 	res.append("|");
-	res.append(tmp.machine);
+	res.append(this->_osStruct.machine);
 	return res;
 }
 

@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 15:58:59 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 16:26:21 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 21:06:28 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,7 @@
 class OSModule : public IMonitorModule
 {
 	private:
-		struct utsname	*_osStruct;
+		struct utsname	_osStruct;
 	public:
 		static const std::string name;
 

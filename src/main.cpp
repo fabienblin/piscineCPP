@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 12:41:57 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 20:36:16 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 13:51:27 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,7 @@
 void exitProg()
 {
     // need to delete monitor here
-    
+
     endwin();
     exit(0);
 }
@@ -34,13 +34,13 @@ int main()
     initscr();
     nodelay(stdscr, true);
 
-    //Monitor * monitor = new Monitor();
-
+    Monitor *monitor = new Monitor();
+    // (void)monitor;
     while (true)
     {
-        //monitor->display();
+        monitor->display();
         doupdate();
-        
+
         //keyHandler(getch());
         usleep(300000);
     }

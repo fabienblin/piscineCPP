@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 15:38:42 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 15:40:04 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 15:47:49 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,41 +23,35 @@ DateModule::~DateModule(void)
 {
 }
 
-DateModule & DateModule::operator=(DateModule const & copy)
+DateModule &DateModule::operator=(DateModule const &copy)
 {
 	if (this != &copy)
 	{
-		this->_hostName = copy._hostName;
-		this->_userName = copy._userName;
+		this->_date = copy._date;
 	}
 	return (*this);
 }
 
-DateModule::DateModule(DateModule const & copy)
+DateModule::DateModule(DateModule const &copy)
 {
 	*this = copy;
 }
 
-//    DateModule(/* args */);
-
 /* Interface methods */
-void	DateModule::updateData(void)
+void DateModule::updateData(void)
 {
-    char	name[256];
-	char	*user;
+	time_t now = time(0);
 
-	user = getenv("USER");
-    if (!user || gethostname(name, 256) == -1) {
-		throw std::exception();//TODO: claquer un autre exception ?
-    }
+	// convert now to string form
+	char *dt = ctime(&now);
 
-    this->_hostName = std::string(name);
-	this->_userName = std::string(user);
+	this->_date = std::string(dt);
+
 }
 
-std::string	DateModule::getData(void) const
+std::string DateModule::getData(void) const
 {
-	return std::string("HostName:" + this->_hostName + " | UserName:" + this->_userName);
+	return std::string("The local date and time is: " + this->_date);
 }
 
-const std::string DateModule::name = "HostName/UserName";
+const std::string DateModule::name = "Date";

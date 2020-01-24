@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 20:12:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 21:06:51 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 15:16:23 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,6 +33,11 @@ ShellUI::ShellUI(ShellUI & s)
     *this = s;
 }
 
+void ShellUI::display(std::string moduleInfo)
+{
+    std::cout << moduleInfo << std::endl;
+}
+
 void ShellUI::init()
 {
     this->window = subwin(stdscr, height, width, 0, 0);
@@ -50,9 +55,3 @@ void ShellUI::print(std::string msg)
     cursor[0] += (cursor[0] < height ? 1 : 0);
 }
 
-void ShellUI::display()
-{
-    // print(hostName);
-    // print(userName);
-    refresh();
-}

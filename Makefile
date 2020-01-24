@@ -6,7 +6,7 @@
 #    By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 11:29:05 by fablin       #+#   ##    ##    #+#        #
-#    Updated: 2020/01/24 15:54:27 by kcabus      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/24 17:58:17 by kcabus      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -20,8 +20,14 @@ SRC_DIR =	./src/
 OBJ_DIR =	./obj/
 
 BIN_DIR =	./bin/
-
-C_FILES =	main.cpp Monitor.cpp ShellUI.cpp GraphicUI.cpp HostModule.cpp
+#TODO : relink .hpp
+C_FILES =	main.cpp	\
+			Monitor.cpp	\
+			ShellUI.cpp	\
+			GraphicUI.cpp	\
+			HostModule.cpp	\
+			OSModule.cpp	\
+			CpuModule.cpp	
 
 O_FILES =	$(C_FILES:.cpp=.o)
 

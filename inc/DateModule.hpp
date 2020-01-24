@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 15:39:22 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 15:53:37 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 16:28:08 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,7 @@
 class DateModule : public IMonitorModule
 {
 	private:
-		std::string	_date;
+		std::string	*_date;
 	public:
 		static const std::string name;
 
@@ -36,6 +36,7 @@ class DateModule : public IMonitorModule
 		/* Interface methods */
 		virtual void updateData(void);
 		virtual std::string getData(void) const;
+		virtual	void	verif_data(void) const;
 };
 
 #endif 

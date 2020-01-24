@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:04:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 18:03:09 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 18:05:42 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,6 +55,5 @@ void Monitor::refresh()
     {
         displayMode->refresh();
     }
-    // clear();
-     doupdate(); // equivalent refresh()
+    doupdate(); // equivalent refresh()
 }

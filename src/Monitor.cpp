@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:04:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 15:17:03 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 18:03:09 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,9 +36,16 @@ Monitor &Monitor::operator=(Monitor const &m)
 
 void Monitor::display()
 {
-    for (std::vector<IMonitorModule *>::iterator it = this->modules.begin(); it != this->modules.end(); it++)
+    try
     {
-        displayMode->display((*it)->getInfo());
+        for (std::vector<IMonitorModule *>::iterator it = this->modules.begin(); it != this->modules.end(); it++)
+        {
+            displayMode->display((*it)->getInfo());
+        }
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
     }
 }
 
@@ -48,4 +55,6 @@ void Monitor::refresh()
     {
         displayMode->refresh();
     }
+    // clear();
+     doupdate(); // equivalent refresh()
 }

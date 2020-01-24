@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:26:28 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 15:07:57 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 15:48:50 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,11 +25,10 @@
 class Monitor
 {
 private:
-    std::vector<IMonitorModule *> modules; // seeUserModule
+    std::vector<IMonitorModule *> modules; // see UserModule
     IMonitorDisplay * displayMode; // see ShellUI and GraphicUI
 
-    
-public:
+    public:
     Monitor();
     ~Monitor();
     Monitor & operator=(Monitor const &);

@@ -6,7 +6,7 @@
 #    By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 11:29:05 by fablin       #+#   ##    ##    #+#        #
-#    Updated: 2020/01/20 20:57:48 by fablin      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/24 15:50:12 by fablin      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -21,7 +21,7 @@ OBJ_DIR =	./obj/
 
 BIN_DIR =	./bin/
 
-C_FILES =	main.cpp IMonitorModule.cpp IMonitorDisplay.cpp Monitor.cpp ShellUI.cpp GraphicUI.cpp UserModule.cpp
+C_FILES =	main.cpp Monitor.cpp ShellUI.cpp GraphicUI.cpp UserModule.cpp
 
 O_FILES =	$(C_FILES:.cpp=.o)
 

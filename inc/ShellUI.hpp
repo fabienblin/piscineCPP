@@ -6,13 +6,15 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 15:14:31 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 15:54:30 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #ifndef SHELLUI
 #define SHELLUI
+
+#include <ncurses.h>
 
 #include "IMonitorDisplay.hpp"
 
@@ -31,9 +33,7 @@ public:
     ShellUI(ShellUI &);
 
     void display(std::string);
-    void init();
     void refresh();
-    void print(std::string);
 };
 
 

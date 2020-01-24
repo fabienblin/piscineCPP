@@ -6,12 +6,12 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 12:41:57 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 13:51:27 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 17:44:01 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "Monitor.hpp"
 
 void exitProg()
 {
@@ -39,7 +39,7 @@ int main()
     while (true)
     {
         monitor->display();
-        doupdate();
+        monitor->refresh();
 
         //keyHandler(getch());
         usleep(300000);

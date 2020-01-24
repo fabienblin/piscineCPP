@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 20:11:21 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 15:12:23 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 16:24:45 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,6 @@ UserModule & UserModule::operator=(UserModule const &m)
 {
     this->hostName = m.hostName;
     this->userName = m.userName;
-    // (void)m;
     return *this;
 }
 
@@ -62,5 +61,5 @@ std::string UserModule::getUserName()
 
 std::string UserModule::getInfo()
 {
-    return this->hostName + " " + this->userName;
+    return "Host Name : " + this->hostName + " User Name : " + this->userName;
 }

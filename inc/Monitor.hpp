@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   Monitor.hpp                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:26:28 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 15:07:57 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 15:55:25 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,13 +19,13 @@
 #include "IMonitorModule.hpp"
 #include "IMonitorDisplay.hpp"
 #include "ShellUI.hpp"
-#include "UserModule.hpp"
+#include "HostModule.hpp"
 
 // Monitor handles the modules
 class Monitor
 {
 private:
-    std::vector<IMonitorModule *> modules; // seeUserModule
+    std::vector<IMonitorModule *> modules; // seeHostModule
     IMonitorDisplay * displayMode; // see ShellUI and GraphicUI
 
     

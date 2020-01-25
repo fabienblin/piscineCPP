@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:04:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 16:35:48 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 16:54:07 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,8 +18,8 @@ Monitor::Monitor(int choice)
     this->modules.push_back(new HostModule());
     this->modules.push_back(new DateModule());
     this->modules.push_back(new CpuModule());
-    this->modules.push_back(new OSModule());
     this->modules.push_back(new RamModule());
+    this->modules.push_back(new OSModule());
     if (choice == eShell)
         this->displayMode = new ShellUI();
     // else

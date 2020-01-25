@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 20:12:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 16:51:12 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 16:53:48 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,8 @@ ShellUI::ShellUI(/* args */)
 	this->windows.push_back(subwin(stdscr, height + 2, width, 6, 0));
 	this->windows.push_back(subwin(stdscr, height + 2, width, 9, 0));
 	this->windows.push_back(subwin(stdscr, height + 2, width, 12, 0));
-	// this->windows.push_back(subwin(stdscr, height + 2, width, 15, 0));
+	keypad(stdscr, TRUE);
+	nodelay(stdscr, TRUE);
 }
 
 ShellUI::~ShellUI()
@@ -86,4 +87,6 @@ void ShellUI::refresh(std::vector<IMonitorModule *> modules)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	if (getch() == 27)
+		exit(1);
 }

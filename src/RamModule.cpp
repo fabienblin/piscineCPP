@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 18:05:34 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 14:26:30 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 15:20:13 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -62,15 +62,10 @@ void RamModule::updateData(void)
 std::string RamModule::getData(void) const
 {
 	this->verif_data();
+	int percent = ((this->_blockUsed * 100) / (this->_blockFree + this->_blockUsed));
 	
 	std::stringstream ss;
-	ss <<	"Blocks used ";
-	ss <<	this->_blockUsed;
-	ss <<	"/";
-	ss <<	this->_blockUsed + this->_blockFree;
-	ss <<	" : ";
-	ss <<	(this->_blockUsed * 100) / (this->_blockFree + this->_blockUsed);
-	ss <<	"%";
+	ss <<	"Blocks used : " << percent << "/100";
 
 	return std::string(ss.str());
 }

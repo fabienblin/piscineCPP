@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 20:12:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 14:44:27 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 15:15:58 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,6 +22,10 @@ ShellUI::ShellUI(/* args */)
 	this->windows.push_back(subwin(stdscr, height + 2, width, 0, 0));
 	this->windows.push_back(subwin(stdscr, height + 2, width, 3, 0));
 	this->windows.push_back(subwin(stdscr, height + 2, width, 6, 0));
+	this->windows.push_back(subwin(stdscr, height + 2, width, 9, 0));
+	this->windows.push_back(subwin(stdscr, height + 2, width, 12, 0));
+	keypad(stdscr, TRUE);
+	nodelay(stdscr, TRUE);
 }
 
 ShellUI::~ShellUI()
@@ -68,4 +72,6 @@ void ShellUI::refresh()
 		box(*it, ACS_VLINE, ACS_HLINE);
 		wnoutrefresh(*it);
 	}
+	if (getch() == 27)
+		exit(1);
 }

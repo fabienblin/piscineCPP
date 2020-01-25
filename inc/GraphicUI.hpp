@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   GraphicUI.hpp                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 20:30:19 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 10:31:30 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,6 +26,10 @@ public:
     GraphicUI & operator=(GraphicUI const &);
     GraphicUI(GraphicUI &);
 
+    virtual void display(std::string);
+    virtual void init();
+    virtual void refresh();
+    virtual void print(std::string);
 };
 
 

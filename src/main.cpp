@@ -6,28 +6,15 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 12:41:57 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 14:52:26 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 16:49:53 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
-
-//#include "main.hpp"
-/*void exitProg()
-{
-    // need to delete monitor here
-
-    endwin();
-    exit(0);
-}*/
-
 
 #include "Monitor.hpp"
 
 int main(int ac, char **av)
 {
-    initscr();
-    noecho();
-    nodelay(stdscr, true);
     int choice;
 
     if (ac != 2 || (strcmp(av[1], "Shell") != 0 && strcmp(av[1], "Graphical") != 0))
@@ -43,16 +30,14 @@ int main(int ac, char **av)
     
 
     Monitor *monitor = new Monitor(choice);
+
     while (true)
     {
-        clear();
-        monitor->display();
         monitor->refresh();
+        monitor->display();
 
         usleep(300000);
-        std::cerr << "s" << std::endl;
     }
 
-    endwin();
     return 0;
 }

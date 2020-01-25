@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 20:12:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 14:52:58 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 16:51:12 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,11 +17,16 @@ ShellUI::ShellUI(/* args */)
 {
 	initscr();
 	nodelay(stdscr, true);
+	noecho();
+
 	this->height = 1;
 	this->width = COLS;
 	this->windows.push_back(subwin(stdscr, height + 2, width, 0, 0));
 	this->windows.push_back(subwin(stdscr, height + 2, width, 3, 0));
 	this->windows.push_back(subwin(stdscr, height + 2, width, 6, 0));
+	this->windows.push_back(subwin(stdscr, height + 2, width, 9, 0));
+	this->windows.push_back(subwin(stdscr, height + 2, width, 12, 0));
+	// this->windows.push_back(subwin(stdscr, height + 2, width, 15, 0));
 }
 
 ShellUI::~ShellUI()
@@ -46,26 +51,39 @@ ShellUI::ShellUI(ShellUI &s)
 
 void ShellUI::display(std::vector<IMonitorModule *> modules)
 {
-	std::vector<IMonitorModule *>::iterator module = modules.begin();
-
-	for (std::vector<WINDOW *>::iterator it = windows.begin(); it != windows.end() && module != modules.end(); it++, module++)
+	try
 	{
-		try
+		clear();
+
+		std::vector<IMonitorModule *>::iterator module = modules.begin();
+
+		for (std::vector<WINDOW *>::iterator it = windows.begin(); it != windows.end() && module != modules.end(); it++, module++)
 		{
 			mvwprintw(*it, 1, 1, (*module)->getData().c_str());
+			box(*it, ACS_VLINE, ACS_HLINE);
 		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 }
 
-void ShellUI::refresh()
+void ShellUI::refresh(std::vector<IMonitorModule *> modules)
 {
-	for (std::vector<WINDOW *>::iterator it = windows.begin(); it != windows.end(); it++)
+	try
 	{
-		box(*it, ACS_VLINE, ACS_HLINE);
-		wnoutrefresh(*it);
+		std::vector<IMonitorModule *>::iterator module = modules.begin();
+
+		for (std::vector<WINDOW *>::iterator it = windows.begin(); it != windows.end(); it++, module++)
+		{
+			(*module)->updateData();
+			wnoutrefresh(*it);
+		}
+		doupdate(); // equivalent refresh()
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 }

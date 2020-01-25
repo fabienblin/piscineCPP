@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 21:01:40 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 16:11:33 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,7 +25,7 @@ protected:
     
 public:
     virtual void display(std::vector<IMonitorModule *>) = 0;
-    virtual void refresh() = 0;
+    virtual void refresh(std::vector<IMonitorModule *>) = 0;
 };
 
 

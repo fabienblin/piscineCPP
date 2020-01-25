@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 21:38:21 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 14:39:27 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 15:59:18 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,8 +24,8 @@ private:
 public:
     Frame(/* args */);
     ~Frame();
-    Frame &Frame = (Frame const &);
-    Frame(Frame &);
+    Frame(Frame const &);
+    Frame & operator=(Frame const &);
 
     Frame(const wxString &title, const wxPoint &pos, const wxSize &size);
     void OnHello(wxCommandEvent &event);

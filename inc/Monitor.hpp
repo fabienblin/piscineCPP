@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   Monitor.hpp                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:26:28 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 11:13:56 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 16:33:52 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,16 +15,17 @@
 #define MONITOR
 
 #include <vector>
+#include <unistd.h>
 
 #include "IMonitorModule.hpp"
 #include "IMonitorDisplay.hpp"
 #include "ShellUI.hpp"
+#include "GraphicUI.hpp"
 #include "CpuModule.hpp"
 #include "DateModule.hpp"
 #include "HostModule.hpp"
 #include "OSModule.hpp"
 #include "RamModule.hpp"
-#include "GraphicUI.hpp"
 
 enum    eDisplayType
 {

@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 21:10:24 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 16:27:39 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,7 +34,7 @@ public:
     ShellUI(ShellUI &);
 
     void display(std::vector<IMonitorModule *>);
-    void refresh();
+    void refresh(std::vector<IMonitorModule *>);
 };
 
 

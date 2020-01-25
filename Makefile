@@ -6,7 +6,7 @@
 #    By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 11:29:05 by fablin       #+#   ##    ##    #+#        #
-#    Updated: 2020/01/25 14:50:26 by fablin      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/25 16:35:05 by fablin      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -20,11 +20,11 @@ SRC_DIR =	./src/
 OBJ_DIR =	./obj/
 
 BIN_DIR =	./bin/
-#TODO : relink .hpp
-C_FILES =	main.cpp	\
-			Monitor.cpp	\
-			ShellUI.cpp	\
-			GraphicUI.cpp	\
+
+C_FILES =	main.cpp		\
+			Monitor.cpp		\
+			ShellUI.cpp		\
+			Frame.cpp		\
 			HostModule.cpp	\
 			DateModule.cpp	\
 			OSModule.cpp	\
@@ -39,14 +39,14 @@ OBJECTS =	$(addprefix $(OBJ_DIR), $(O_FILES))
 
 CC =		clang++
 
-CC_FLAGS =	-Wall -Werror -Wextra `wx-config --cxxflags` `wx-config --libs`
+CC_FLAGS =	-Wall -Werror -Wextra `wx-config --cxxflags` -O3 -march=native -pipe -flto
 
 DEBUG_FLAG = -ggdb
 
 all: $(NAME)
 
 $(NAME):$(OBJECTS)
-	brew install wxmac
+	#brew install wxmac
 	@mkdir -p $(BIN_DIR)
 	@$(CC) $(CC_FLAGS) -lncurses $(OBJECTS) -I $(INC_DIR) -o $(BIN_DIR)$(NAME)
 	@echo "$(BIN_DIR)$(NAME) is ready :)"

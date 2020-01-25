@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   DateModule.cpp                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 15:38:42 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 14:23:04 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 22:10:13 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,6 +18,7 @@ DateModule::DateModule(void)
 {
 	this->_isInit = false;
 	this->updateData();
+	title = "Date / Time";
 }
 
 DateModule::~DateModule(void)
@@ -62,6 +63,11 @@ std::string DateModule::getData(void) const
 {
 	this->verif_data();
 	return std::string("The local date and time is: " + this->_date);
+}
+
+std::string DateModule::getTitle(void)
+{
+	return title;
 }
 
 const std::string DateModule::name = "Date";

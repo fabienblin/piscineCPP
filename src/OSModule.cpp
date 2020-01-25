@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   OSModule.cpp                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 15:58:41 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 14:17:26 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 22:09:36 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,6 +18,7 @@ OSModule::OSModule(void)
 {
 	this->_isInit = false;
 	this->updateData();
+	title = "OS";
 }
 
 OSModule::~OSModule(void)
@@ -76,5 +77,9 @@ std::string OSModule::getData(void) const
 	return res;
 }
 
+std::string OSModule::getTitle(void)
+{
+	return title;
+}
 
 const std::string OSModule::name = "Operating System Information";

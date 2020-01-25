@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   RamModule.cpp                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 18:05:34 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 15:20:13 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 22:09:21 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,6 +18,7 @@ RamModule::RamModule(void)
 {
 	this->_isInit = false;
 	this->updateData();
+	title = "RAM";
 }
 
 RamModule::~RamModule(void)
@@ -68,6 +69,11 @@ std::string RamModule::getData(void) const
 	ss <<	"Blocks used : " << percent << "/100";
 
 	return std::string(ss.str());
+}
+
+std::string RamModule::getTitle(void)
+{
+	return title;
 }
 
 const std::string RamModule::name = "RAM";

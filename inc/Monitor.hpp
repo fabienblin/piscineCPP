@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:26:28 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 16:33:52 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 16:59:58 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,7 +33,7 @@ enum    eDisplayType
     eGraphical
 };
 
-// Monitor handles the modules
+// Monitor handles the modules using dislpayMode
 class Monitor
 {
 private:

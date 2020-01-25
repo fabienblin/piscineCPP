@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   HostModule.cpp                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 14:12:31 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 14:17:49 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 22:09:58 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,6 +18,7 @@ HostModule::HostModule(void)
 {
 	this->_isInit = false;
 	this->updateData();
+	title = "User / Host";
 }
 
 HostModule::~HostModule(void)
@@ -67,6 +68,11 @@ std::string	HostModule::getData(void) const
 {
 	this->verif_data();
 	return std::string("HostName:" + this->_hostName + " | UserName:" + this->_userName);
+}
+
+std::string HostModule::getTitle(void)
+{
+	return title;
 }
 
 const std::string HostModule::name = "HostName/UserName";

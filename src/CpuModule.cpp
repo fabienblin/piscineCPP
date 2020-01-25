@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   CpuModule.cpp                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 17:10:48 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 14:08:25 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 22:10:26 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,6 +17,7 @@ CpuModule::CpuModule(void)
 {
 	this->_isInit = false;
 	this->updateData();
+	title = "CPU";
 }
 
 CpuModule::~CpuModule(void)
@@ -62,6 +63,11 @@ std::string CpuModule::getData(void) const
 {
 	this->verif_data();
 	return std::string(this->_cpu);
+}
+
+std::string CpuModule::getTitle(void)
+{
+	return title;
 }
 
 const std::string CpuModule::name = "CPU Information";

@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   DateModule.hpp                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 15:39:22 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 14:09:04 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 22:13:06 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,6 +22,7 @@ class DateModule : public IMonitorModule
 {
 	private:
 		std::string	_date;
+		std::string	title;
 		bool	_isInit;
 
 	public:
@@ -39,6 +40,7 @@ class DateModule : public IMonitorModule
 		virtual void updateData(void);
 		virtual std::string getData(void) const;
 		virtual	void	verif_data(void) const;
+		virtual std::string getTitle();
 };
 
 #endif 

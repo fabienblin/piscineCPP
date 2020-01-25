@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:04:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 16:54:07 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 21:40:47 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,8 +22,8 @@ Monitor::Monitor(int choice)
     this->modules.push_back(new OSModule());
     if (choice == eShell)
         this->displayMode = new ShellUI();
-    // else
-    //     this->displayMode = new GraphicUI();
+    else
+        this->displayMode = new WxmacDisplay();
 }
 
 Monitor::~Monitor()
@@ -55,16 +55,12 @@ void Monitor::display()
 
 void Monitor::refresh()
 {
-    // for (std::vector<IMonitorModule *>::iterator it = this->modules.begin(); it != this->modules.end(); it++)
-    // {
-        try
-        {
-            displayMode->refresh(modules);
-        }
-        catch(const std::exception& e)
-        {
-            std::cerr << e.what() << '\n';
-        }
-        
-    // }
+    try
+    {
+        displayMode->refresh(modules);
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }

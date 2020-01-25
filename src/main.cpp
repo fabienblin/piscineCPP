@@ -6,12 +6,15 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 12:41:57 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 16:54:04 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 22:35:04 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "Monitor.hpp"
+#include <wx/wx.h>
+
+IMPLEMENT_APP_NO_MAIN(GraphicUI);
 
 int main(int ac, char **av)
 {
@@ -24,10 +27,16 @@ int main(int ac, char **av)
     }
 
     if (strcmp(av[1], "Graphical") == 0)
+    {
         choice = eGraphical;
+        wxEntryStart(ac, av);
+        wxTheApp->CallOnInit();
+        wxTheApp->OnRun();
+        wxTheApp->OnExit();
+        wxEntryCleanup();
+    }
     else
-        choice = eShell;
-    
+    {    choice = eShell;
 
     Monitor *monitor = new Monitor(choice);
 
@@ -38,6 +47,6 @@ int main(int ac, char **av)
 
         usleep(300000);
     }
-
+    }
     return 0;
 }

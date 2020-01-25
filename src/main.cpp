@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 12:41:57 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 21:44:58 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 10:51:49 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,6 +33,7 @@ void keyHandler(const int key)
     if (key == KEY_UP || key == KEY_DOWN || key == KEY_LEFT || key == KEY_RIGHT)
         ;
 }*/
+#include "Monitor.hpp"
 
 int main()
 {
@@ -49,7 +50,7 @@ int main()
     std::cout << "[" << cpu.name << "] : " << cpu.getData() << std::endl;
     std::cout << "[" << ram.name << "] : " << ram.getData() << std::endl;
 
-/*  initscr();
+    initscr();
     nodelay(stdscr, true);
 
 
@@ -58,13 +59,14 @@ int main()
     // (void)monitor;
     while (true)
     {
+        clear();
         monitor->display();
-        doupdate();
+        monitor->refresh();
 
         //keyHandler(getch());
         usleep(300000);
     }
 
-    endwin();*/
+    endwin();
     return 0;
 }

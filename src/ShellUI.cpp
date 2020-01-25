@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 20:12:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 15:16:23 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 21:19:24 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,43 +15,47 @@
 
 ShellUI::ShellUI(/* args */)
 {
-    init();
+    this->height = 1;
+    this->width = COLS;
+    this->windows.push_back(subwin(stdscr, height + 2, width, 0, 0));
+    this->windows.push_back(subwin(stdscr, height + 2, width, 3, 0));
+    this->windows.push_back(subwin(stdscr, height + 2, width, 6, 0));
 }
 
 ShellUI::~ShellUI()
 {
+    for (std::vector<WINDOW *>::iterator it = windows.begin(); it != windows.end(); it++)
+    {
+        delwin(*it);
+    }
 }
 
-ShellUI & ShellUI::operator=(ShellUI const & s)
+ShellUI &ShellUI::operator=(ShellUI const &s)
 {
     (void)s;
     return *this;
 }
 
-ShellUI::ShellUI(ShellUI & s)
+ShellUI::ShellUI(ShellUI &s)
 {
     *this = s;
 }
 
-void ShellUI::display(std::string moduleInfo)
+void ShellUI::display(std::vector<IMonitorModule *> modules)
 {
-    std::cout << moduleInfo << std::endl;
-}
+    std::vector<IMonitorModule *>::iterator module = modules.begin();
+    std::vector<WINDOW *>::iterator window = windows.begin();
 
-void ShellUI::init()
-{
-    this->window = subwin(stdscr, height, width, 0, 0);
+    mvwprintw(*window++, 1, 1, (*module++)->getInfo().c_str());
+    mvwprintw(*window++, 1, 1, (*module++)->getInfo().c_str());
+    mvwprintw(*window++, 1, 1, (*module++)->getInfo().c_str());
 }
 
 void ShellUI::refresh()
 {
-    wnoutrefresh(window);
-    box(window, ACS_VLINE, ACS_HLINE);
+    for (std::vector<WINDOW *>::iterator it = windows.begin(); it != windows.end(); it++)
+    {
+        box(*it, ACS_VLINE, ACS_HLINE);
+        wnoutrefresh(*it);
+    }
 }
-
-void ShellUI::print(std::string msg)
-{
-    mvwprintw(window, cursor[0], cursor[1], msg.c_str());
-    cursor[0] += (cursor[0] < height ? 1 : 0);
-}
-

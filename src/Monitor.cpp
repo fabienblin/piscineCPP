@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:04:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 20:55:38 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 14:44:41 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,7 @@ Monitor::Monitor()
     this->modules.push_back(new UserModule());
     this->modules.push_back(new UserModule());
     this->modules.push_back(new UserModule());
-    this->displayMode = new ShellUI();
+    this->displayMode = new GraphicUI();
 }
 
 Monitor::~Monitor()

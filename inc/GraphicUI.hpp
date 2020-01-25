@@ -6,7 +6,7 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 20:30:19 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 14:45:40 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,19 +14,32 @@
 #ifndef GRAPHICUI
 #define GRAPHICUI
 
-#include "IMonitorDisplay.hpp"
+#include <wx/wx.h>
 
-class GraphicUI : IMonitorDisplay
+#include "IMonitorDisplay.hpp"
+#include "Frame.hpp"
+
+class GraphicUI : public IMonitorDisplay, public wxApp
 {
 private:
-    
+    virtual bool OnInit();
 public:
     GraphicUI(/* args */);
     ~GraphicUI();
     GraphicUI & operator=(GraphicUI const &);
     GraphicUI(GraphicUI &);
 
+    void display(std::vector<IMonitorModule *>);
+    void refresh();
+    
+    virtual bool OnInit();
 };
+
+enum
+{
+    ID_Hello = 1
+};
+
 
 
 #endif

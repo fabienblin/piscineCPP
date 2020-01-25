@@ -6,7 +6,7 @@
 #    By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/17 11:29:05 by fablin       #+#   ##    ##    #+#        #
-#    Updated: 2020/01/24 15:50:12 by fablin      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/25 14:21:59 by fablin      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -21,7 +21,7 @@ OBJ_DIR =	./obj/
 
 BIN_DIR =	./bin/
 
-C_FILES =	main.cpp Monitor.cpp ShellUI.cpp GraphicUI.cpp UserModule.cpp
+C_FILES =	main.cpp Monitor.cpp ShellUI.cpp UserModule.cpp GraphicUI.cpp
 
 O_FILES =	$(C_FILES:.cpp=.o)
 
@@ -31,13 +31,14 @@ OBJECTS =	$(addprefix $(OBJ_DIR), $(O_FILES))
 
 CC =		clang++
 
-CC_FLAGS =	-Wall -Werror -Wextra
+CC_FLAGS =	-Wall -Werror -Wextra `wx-config --cxxflags` `wx-config --libs`
 
 DEBUG_FLAG = -ggdb
 
 all: $(NAME)
 
 $(NAME):$(OBJECTS)
+	brew install wxmac
 	@mkdir -p $(BIN_DIR)
 	@$(CC) $(CC_FLAGS) -lncurses $(OBJECTS) -I $(INC_DIR) -o $(BIN_DIR)$(NAME)
 	@echo "$(BIN_DIR)$(NAME) is ready :)"

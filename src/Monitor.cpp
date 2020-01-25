@@ -6,21 +6,24 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:04:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 10:58:32 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 11:15:49 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "Monitor.hpp"
 
-Monitor::Monitor()
+Monitor::Monitor(int choice)
 {
     this->modules.push_back(new HostModule());
     this->modules.push_back(new DateModule());
     this->modules.push_back(new CpuModule());
     this->modules.push_back(new OSModule());
     this->modules.push_back(new RamModule());
-    this->displayMode = new ShellUI();
+    if (choice == eShell)
+        this->displayMode = new ShellUI();
+    else
+        this->displayMode = new GraphicUI();
 }
 
 Monitor::~Monitor()

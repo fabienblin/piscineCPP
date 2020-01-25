@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:07:20 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 10:31:30 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 11:15:24 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,7 @@
 
 #include "IMonitorDisplay.hpp"
 
-class GraphicUI : IMonitorDisplay
+class GraphicUI : public IMonitorDisplay
 {
 private:
     
@@ -26,7 +26,7 @@ public:
     GraphicUI & operator=(GraphicUI const &);
     GraphicUI(GraphicUI &);
 
-    virtual void display(std::string);
+    virtual void display(std::vector<IMonitorModule *>);
     virtual void init();
     virtual void refresh();
     virtual void print(std::string);

@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 20:12:02 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 10:32:44 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 11:17:04 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,18 +33,18 @@ GraphicUI::GraphicUI(GraphicUI & g)
 }
 
 /* function member */
-void display(std::string)
+void GraphicUI::display(std::vector<IMonitorModule *>)
 {
 }
 
-void init()
+void GraphicUI::init()
 {
 }
 
-void refresh()
+void GraphicUI::refresh()
 {
 }
 
-void print(std::string)
+void GraphicUI::print(std::string)
 {
 }

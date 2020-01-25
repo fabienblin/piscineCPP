@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 20:12:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 10:58:55 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 11:19:47 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,6 +15,8 @@
 
 ShellUI::ShellUI(/* args */)
 {
+    initscr();
+    nodelay(stdscr, true);
     this->height = 1;
     this->width = COLS;
     this->windows.push_back(subwin(stdscr, height + 2, width, 0, 0));
@@ -28,6 +30,7 @@ ShellUI::~ShellUI()
     {
         delwin(*it);
     }
+    endwin();
 }
 
 ShellUI &ShellUI::operator=(ShellUI const &s)

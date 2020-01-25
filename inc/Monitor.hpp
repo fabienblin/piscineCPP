@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:26:28 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 10:54:29 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 11:13:56 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,6 +24,13 @@
 #include "HostModule.hpp"
 #include "OSModule.hpp"
 #include "RamModule.hpp"
+#include "GraphicUI.hpp"
+
+enum    eDisplayType
+{
+    eShell,
+    eGraphical
+};
 
 // Monitor handles the modules
 class Monitor
@@ -31,9 +38,10 @@ class Monitor
 private:
     std::vector<IMonitorModule *> modules; // seeHostModule
     IMonitorDisplay * displayMode; // see ShellUI and GraphicUI
+    Monitor();
 
     public:
-    Monitor();
+    Monitor(int choice);
     ~Monitor();
     Monitor & operator=(Monitor const &);
     Monitor(Monitor &);

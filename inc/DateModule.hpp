@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 15:39:22 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 20:54:43 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 14:09:04 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,6 +22,8 @@ class DateModule : public IMonitorModule
 {
 	private:
 		std::string	_date;
+		bool	_isInit;
+
 	public:
 		static const std::string name;
 

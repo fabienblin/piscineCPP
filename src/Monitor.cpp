@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:04:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 11:15:49 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 14:39:53 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,8 +57,16 @@ void Monitor::refresh()
 {
     for (std::vector<IMonitorModule *>::iterator it = this->modules.begin(); it != this->modules.end(); it++)
     {
-        (*it)->updateData();
-        displayMode->refresh();
+        try
+        {
+            (*it)->updateData();
+            displayMode->refresh();
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+        
     }
     doupdate(); // equivalent refresh()
 }

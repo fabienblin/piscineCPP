@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 15:58:41 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 21:06:49 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 14:17:26 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,6 +16,7 @@
 /* Canonical */
 OSModule::OSModule(void)
 {
+	this->_isInit = false;
 	this->updateData();
 }
 
@@ -41,8 +42,8 @@ OSModule::OSModule(OSModule const &copy)
 
 void	OSModule::verif_data(void) const
 {
-/*	if (this->_osStruct)
-		throw std::exception();*/
+	if (!this->_isInit)
+		throw std::exception();
 }
 
 void OSModule::updateData(void)
@@ -50,6 +51,7 @@ void OSModule::updateData(void)
 		if (uname(&this->_osStruct) == -1)
 		throw std::exception();//TODO: whitch exception ?
 
+	this->_isInit = true;
 }
 
 //char sysname[];	/* Operating system name (e.g., "Linux") */       

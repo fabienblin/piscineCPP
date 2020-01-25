@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 18:12:23 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 21:43:05 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 14:23:41 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,6 +21,7 @@
 class RamModule : public IMonitorModule
 {
 	private:
+		bool	_isInit;
 		long	_blockUsed;
 		long	_blockFree;
 	public:

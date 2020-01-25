@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 14:06:36 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 16:58:12 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 14:14:23 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,8 +26,9 @@
 class HostModule : public IMonitorModule
 {
 private:
-    std::string *_hostName;
-    std::string *_userName;
+    std::string _hostName;
+    std::string _userName;
+	bool	_isInit;
 
 public:
 	static const std::string name;

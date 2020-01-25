@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 15:58:59 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 21:06:28 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 14:23:13 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,6 +22,8 @@ class OSModule : public IMonitorModule
 {
 	private:
 		struct utsname	_osStruct;
+		bool		_isInit;
+
 	public:
 		static const std::string name;
 
@@ -39,4 +41,4 @@ class OSModule : public IMonitorModule
 		virtual	void	verif_data(void) const;
 };
 
-#endif 
+#endif

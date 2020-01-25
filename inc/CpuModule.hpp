@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 17:10:53 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 17:57:43 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 14:07:25 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,7 @@ class CpuModule : public IMonitorModule
 {
 	private:
 		std::string	_cpu;
+		bool	_isInit;
 
 	public:
 		static const std::string name;

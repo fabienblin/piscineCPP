@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/24 15:38:42 by kcabus       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 20:54:55 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 14:23:04 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,6 +16,7 @@
 /* Canonical */
 DateModule::DateModule(void)
 {
+	this->_isInit = false;
 	this->updateData();
 }
 
@@ -27,6 +28,8 @@ DateModule &DateModule::operator=(DateModule const &copy)
 {
 	if (this != &copy)
 	{
+		this->_date = copy._date;
+		this->_isInit = copy._isInit;
 	}
 	return (*this);
 }
@@ -40,8 +43,8 @@ DateModule::DateModule(DateModule const &copy)
 
 void	DateModule::verif_data(void) const
 {
-/*	if (!this->_date)
-		throw std::exception();*/
+	if (!this->_isInit)
+		throw std::exception();
 }
 
 void DateModule::updateData(void)
@@ -52,10 +55,12 @@ void DateModule::updateData(void)
 	char *dt = ctime(&now);
 
 	this->_date = std::string(dt);
+	this->_isInit = true;
 }
 	
 std::string DateModule::getData(void) const
 {
+	this->verif_data();
 	return std::string("The local date and time is: " + this->_date);
 }
 

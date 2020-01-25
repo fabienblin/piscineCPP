@@ -6,18 +6,12 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 12:41:57 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 10:51:49 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 11:02:46 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 //#include "main.hpp"
-#include "CpuModule.hpp"
-#include "DateModule.hpp"
-#include "HostModule.hpp"
-#include "OSModule.hpp"
-#include "RamModule.hpp"
-
 /*void exitProg()
 {
     // need to delete monitor here
@@ -37,19 +31,6 @@ void keyHandler(const int key)
 
 int main()
 {
-
-    CpuModule cpu;
-    HostModule host;
-    DateModule dat;
-    OSModule os;
-    RamModule ram;
-
-    std::cout << "[" << host.name << "] : " << host.getData() << std::endl;
-    std::cout << "[" << dat.name << "] : " << dat.getData() << std::endl;
-    std::cout << "[" << os.name << "] : " << os.getData() << std::endl;
-    std::cout << "[" << cpu.name << "] : " << cpu.getData() << std::endl;
-    std::cout << "[" << ram.name << "] : " << ram.getData() << std::endl;
-
     initscr();
     nodelay(stdscr, true);
 

@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ShellUI.cpp                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
+/*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 20:12:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/24 21:19:24 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 10:58:55 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -46,9 +46,9 @@ void ShellUI::display(std::vector<IMonitorModule *> modules)
     std::vector<IMonitorModule *>::iterator module = modules.begin();
     std::vector<WINDOW *>::iterator window = windows.begin();
 
-    mvwprintw(*window++, 1, 1, (*module++)->getInfo().c_str());
-    mvwprintw(*window++, 1, 1, (*module++)->getInfo().c_str());
-    mvwprintw(*window++, 1, 1, (*module++)->getInfo().c_str());
+    mvwprintw(*window++, 1, 1, (*module++)->getData().c_str());
+    mvwprintw(*window++, 1, 1, (*module++)->getData().c_str());
+    mvwprintw(*window++, 1, 1, (*module++)->getData().c_str());
 }
 
 void ShellUI::refresh()

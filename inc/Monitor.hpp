@@ -6,7 +6,7 @@
 /*   By: kcabus <kcabus@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:26:28 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 10:52:22 by kcabus      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 10:54:29 by kcabus      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,11 @@
 #include "IMonitorModule.hpp"
 #include "IMonitorDisplay.hpp"
 #include "ShellUI.hpp"
+#include "CpuModule.hpp"
+#include "DateModule.hpp"
 #include "HostModule.hpp"
+#include "OSModule.hpp"
+#include "RamModule.hpp"
 
 // Monitor handles the modules
 class Monitor

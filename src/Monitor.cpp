@@ -6,19 +6,24 @@
 /*   By: fablin <fablin@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/20 15:04:29 by fablin       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/25 14:44:41 by fablin      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/25 14:52:42 by fablin      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "Monitor.hpp"
 
-Monitor::Monitor()
+Monitor::Monitor(int choice)
 {
-    this->modules.push_back(new UserModule());
-    this->modules.push_back(new UserModule());
-    this->modules.push_back(new UserModule());
-    this->displayMode = new GraphicUI();
+    this->modules.push_back(new HostModule());
+    this->modules.push_back(new DateModule());
+    this->modules.push_back(new CpuModule());
+    this->modules.push_back(new OSModule());
+    this->modules.push_back(new RamModule());
+    if (choice == eShell)
+        this->displayMode = new ShellUI();
+    else
+        this->displayMode = new GraphicUI();
 }
 
 Monitor::~Monitor()
@@ -52,7 +57,16 @@ void Monitor::refresh()
 {
     for (std::vector<IMonitorModule *>::iterator it = this->modules.begin(); it != this->modules.end(); it++)
     {
-        displayMode->refresh();
+        try
+        {
+            (*it)->updateData();
+            displayMode->refresh();
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+        
     }
     doupdate(); // equivalent refresh()
 }
